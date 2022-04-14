@@ -1,0 +1,80 @@
+//card.component.css
+
+h5{
+    text-align: center;
+}
+img{
+    text-align: center;
+    height: 200px;
+    width: 200px;
+}
+----------------------------------------------------
+
+
+//card.component.html
+
+<div class="card-deck container-fluid ">
+    <div class="row">
+      <div class="card m-2" style="width: 23%" *ngFor="let i of a | paginate: { itemsPerPage: 8, currentPage: cardss } ">
+      <div class="card-body">
+          <div class="text-center">
+        <img class="card-img-fluid" [src]="i.photo" alt="Card image cap">
+    </div>
+        <h5 class="card-text ">{{i.Enrolloment}}</h5> 
+        <hr />
+        <div class="bg-primary">
+        <h5 class="card-title"> {{i.Name}}</h5>
+        <h5 class="card-text ">{{i.Enrolloment}}</h5> 
+    </div>
+      </div>
+      </div>
+      </div>
+  </div>
+  <div class="text-center">
+    <pagination-controls (pageChange)="cardss = $event"></pagination-controls>
+</div>
+  
+--------------------------------------------------------
+  
+//card.component.ts
+
+
+import { Component, OnInit } from '@angular/core';
+import { CarsService } from '../service/cars.service';
+
+@Component({
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css']
+})
+export class CardComponent implements OnInit {
+
+   cardss:number=1
+  a=[
+    {Enrolloment:'21SOECA21045',Name:'Name:- vishal',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21044',Name:'Name:- sachin',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21005',Name:'Name:- ketan',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21006',Name:'Name:- Rahul',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21007',Name:'Name:- Harshil',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21008',Name:'Name:- viraj',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21009',Name:'Name:- kanu',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21044',Name:'Name:- Manu',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21045',Name:'Name:- jay',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21045',Name:'Name:- babu',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21045',Name:'Name:- bhikho',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21045',Name:'Name:- jaydeep',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21045',Name:'Name:- sachin',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21045',Name:'Name:- sachin',photo:"../assets/images/abc.png"},
+    {Enrolloment:'21SOECA21045',Name:'Name:- sachin',photo:"../assets/images/abc.png"}
+  ]
+  
+  constructor(private pagesss:CarsService) { }
+
+  ngOnInit(): void {
+    
+  }
+
+}
+
+
+ 
